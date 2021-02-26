@@ -1,0 +1,8 @@
+<h1>Product</h1>
+
+<ul>
+    <% @products.each do |prod|%>
+        <li><%= link_to prod.title_for_index, prod %></li>
+            <!-- Name: <%= prod.name%> - Category: <%= prod.category %></li> -->
+    <% end%>
+</ul>

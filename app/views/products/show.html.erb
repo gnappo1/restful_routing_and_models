@@ -1,1 +1,7 @@
 <h1><%= @product.name%></h1>
+
+<h4>Price: <%= @product.price%></h4>
+<h4>category: <%= @product.category%></h4>
+<h4>Availability: <%= @product.availability%></h4>
+
+<%= link_to "All products", products_path %>

@@ -8,6 +8,13 @@
     - custom methods [X]
 3. Create routes [X]
 4. Build index page [X]
-5. Build Show page - finish next time!!!
+5. Build Show page [X]
+6. Build all routes [X]
+7. Build new/create actions [X]
+8. Build new form [X]
+9. Build edit/update actions
+10. Build edit form
+11. Build destroy action
+12. Delete form
 
 If you're curious about benchmarking, make sure you check out the benchmark.rb file and run it from the terminal `ruby benchmark.rb`

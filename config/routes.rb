@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   #single route syntax
 
   # get '/products', to: 'products#index'
-  # get '/products/:id', to: 'products#show'
+  # get '/products/:id', to: 'products#show', as: 'product'
+  # get '/products/new', to: 'products#new'
+  # post '/products', to: 'products#create'
 
   #shortcut route generator syntax
-    resources :products, only: [:show, :index]
+    resources :products, except: [:edit, :update, :destroy]
 end

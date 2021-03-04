@@ -27,30 +27,38 @@
     <%= label_tag :"product_name" %>
     <%= text_field_tag :"product[name]"%><br>
     <%= label_tag :"product_availability" %>
-    <%= select_tag :"product[availability]", options_for_select([ "true", "false"], include_blank: "Select an availability")%><br>
+    <%= select_tag :"product[availability]", options_for_select([ "true", "false"]), include_blank: "Select an availability"%><br>
     <%= label_tag :"product_price" %>
-    <%= number_field_tag :"product[price]", step: 2%><br>
+    <%= number_field_tag :"product[price]", step: "0.01" %><br>
     <%= label_tag :"product_category" %>
-    <%= select_tag :"product[category]", options_for_select([ "clothing", "accessories", "electronics", "groceries" ], include_blank: "Select a category")%><br>
+    <%= select_tag :"product[category]", options_for_select([ "clothing", "accessories", "electronics", "groceries" ]), include_blank: "Select a category"%><br>
     <%= submit_tag "Submit"%>
 <% end %>
 <hr>
 <%= form_for(@product) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name%><br>
+    <%= f.label :availability %>
+    <%= f.select :availability, options_for_select([ "true", "false"]), include_blank: "Select an availability"%><br>
     <%= f.label :price %>
-    <%= f.number_field :price%><br>
+    <%= f.number_field :price, step: 0.01%><br>
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"]), include_blank: "Select a category"%><br>
     
     <%= f.submit %>
 
 <% end %>
 <hr>
 <%= form_with(model: @product) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name%><br>
-    <%= f.label :price %>
-    <%= f.number_field :price%><br>
-    
-    <%= f.submit %>
+<%= f.label :name %>
+<%= f.text_field :name%><br>
+<%= f.label :availability %>
+<%= f.select :availability, options_for_select([ "true", "false"]), include_blank: "Select an availability"%><br>
+<%= f.label :price %>
+<%= f.number_field :price, step: 0.01%><br>
+<%= f.label :category %>
+<%= f.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"]), include_blank: "Select a category"%><br>
+
+<%= f.submit %>
 
 <% end %>

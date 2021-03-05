@@ -18,8 +18,9 @@ class ProductsController < ApplicationController
         if @product.save
             # redirect_to "/products/#{product.id}"
             # redirect_to product_path(product)
-            redirect_to product
+            redirect_to @product, success: "Product successfully created!"
         else
+            flash.now[:error] = @product.errors.full_messages.to_sentence
             render :new
         end
     end

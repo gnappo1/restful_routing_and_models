@@ -1,54 +1,5 @@
 <h1>Create a new product</h1>
 
-<form action="/products" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
-    <label for="product_name">Name</label>
-    <input type="text" name="product[name]" id="product_name"><br>
-    <label for="product_category">Category</label>
-    <select name="product[category]" id="product_category">
-        <option value="">Select a category</option>
-        <option value="clothing">clothing</option>
-        <option value="accessories">accessories</option>
-        <option value="electronics">electronics</option>
-        <option value="groceries">groceries</option>
-    </select><br>
-    <label for="product_price">Price</label>
-    <input type="number" step="0.01" name="product[price]" id="product_price"><br>
-    <label for="product_availability">Availability</label>
-    <select name="product[availability]" id="product_availability">
-        <option value="">Select the availability</option>
-        <option value="true">true</option>
-        <option value="false">false</option>
-    </select><br>
-    <input type="submit" id="submit"><br>
-</form>
-<hr>
-<%= form_tag(products_path) do %>
-    <%= label_tag :"product_name" %>
-    <%= text_field_tag :"product[name]"%><br>
-    <%= label_tag :"product_availability" %>
-    <%= select_tag :"product[availability]", options_for_select([ "true", "false"]), include_blank: "Select an availability"%><br>
-    <%= label_tag :"product_price" %>
-    <%= number_field_tag :"product[price]", step: "0.01" %><br>
-    <%= label_tag :"product_category" %>
-    <%= select_tag :"product[category]", options_for_select([ "clothing", "accessories", "electronics", "groceries" ]), include_blank: "Select a category"%><br>
-    <%= submit_tag "Submit"%>
-<% end %>
-<hr>
-<%= form_for(@product) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name%><br>
-    <%= f.label :availability %>
-    <%= f.select :availability, options_for_select([ "true", "false"]), include_blank: "Select an availability"%><br>
-    <%= f.label :price %>
-    <%= f.number_field :price, step: 0.01%><br>
-    <%= f.label :category %>
-    <%= f.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"]), include_blank: "Select a category"%><br>
-    
-    <%= f.submit %>
-
-<% end %>
-<hr>
 <%= form_with(model: @product) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name%><br>

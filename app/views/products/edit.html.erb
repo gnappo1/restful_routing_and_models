@@ -1,0 +1,17 @@
+<h1>Edit</h1>
+
+<%= form_with(model: @product) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name%><br>
+    <%= f.label :availability %>
+    <%= f.select :availability, options_for_select([ "true", "false"], selected: @product.availability), include_blank: "Select an availability"%><br>
+    <%= f.label :price %>
+    <%= f.number_field :price, step: 0.01%><br>
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"], selected: @product.category), include_blank: "Select a category"%><br>
+
+    <%= f.submit %>
+
+<% end %>
+
+<%= link_to "Back", :back %>

@@ -5,3 +5,7 @@
 <h4>Availability: <%= @product.availability%></h4>
 
 <%= link_to "All products", products_path %>
+<%= link_to "Back", :back %>
+<%= link_to "Edit", edit_product_path(@product) %>
+<%= button_to "Delete", product_path(@product), method: "delete", data: {confirm: "Are you sure???"} %>
+<%= link_to "Delete", @product, method: "delete", data: {confirm: "Are you sure???"}  %>

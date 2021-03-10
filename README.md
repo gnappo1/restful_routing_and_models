@@ -2,22 +2,22 @@
 
 ## Week 2
 
-1. Make a migration for products table [X]
-    - name, category, price, sku_number, availability [X]
-2. Make a model  [X]
+1. Make a migration for products table
+    - name, category, price, sku_number, availability
+2. Make a model  
     - associations (for when we will build more than one model)
-    - validations  [X]
-    - custom methods [X]
-3. Create routes [X]
-4. Build index page [X]
-5. Build Show page [X]
-6. Build all routes [X]
-7. Build new/create actions [X]
-8. Build new form [X]
-9. Build edit/update actions [X]
-10. Build edit form [X]
-11. Build destroy action [X]
-12. Delete form [X]
+    - validations  
+    - custom methods
+3. Create routes
+4. Build index page
+5. Build Show page
+6. Build all routes
+7. Build new/create actions
+8. Build new form
+9. Build edit/update actions
+10. Build edit form
+11. Build destroy action
+12. Delete form
 
 ## Week 3
 

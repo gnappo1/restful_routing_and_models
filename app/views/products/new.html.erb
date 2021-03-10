@@ -1,5 +1,16 @@
 <h1>Create a new product</h1>
 
+<% if @product.errors.any? %>
+    <div class="error-explanations">
+        <h2><%=pluralize(@product.errors.count, "Error") %> prevented the product from being created:</h2>
+        <ul class="error-details">
+            <% @product.errors.full_messages.each do |sentence| %>
+                <li class="error-message"><%= sentence %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
 <%= form_with(model: @product) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name%><br>

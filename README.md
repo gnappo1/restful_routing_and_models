@@ -28,4 +28,11 @@
 5. Add an index and the uniqueness constraint directly to the name column in the products table
 6. General conversation about race conditions
 
-If you're curious about benchmarking, make sure you check out the benchmark.rb file and run it from the terminal `ruby benchmark.rb`
+## Week 4
+
+1. Review how the .new method works and what methods are actually being called behind the scenes.
+2. Implement a nested form for a belongs_to relationship
+3. Optionally allow a user to choose from a brand that already exists or create a new brand
+4. Implement a nested form for a has_many relationship
+5. Understand the methods provided by the accepts_nested_attributes_for macro
+6. Create custom attribute writers and understand why/when they are useful

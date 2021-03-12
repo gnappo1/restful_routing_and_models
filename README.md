@@ -1,6 +1,6 @@
 # Live Lecture - Rails Models and ReSTful Routing
 
-## Week 2
+## Week 2 (CRUD)
 
 1. Make a migration for products table
     - name, category, price, sku_number, availability
@@ -19,7 +19,7 @@
 11. Build destroy action
 12. Delete form
 
-## Week 3
+## Week 3 (validations)
 
 1. Add built-in validations
 2. Add logic for displaying error messages in new/edit forms
@@ -28,7 +28,7 @@
 5. Add an index and the uniqueness constraint directly to the name column in the products table
 6. General conversation about race conditions
 
-## Week 4
+## Week 3 (nested forms)
 
 1. Review how the .new method works and what methods are actually being called behind the scenes.
 2. Implement a nested form for a belongs_to relationship

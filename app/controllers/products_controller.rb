@@ -15,10 +15,12 @@ class ProductsController < ApplicationController
 
     def new
         @product = Product.new
+        @product.build_brand
     end
 
     def create
-        @product = Product.new(product_params(:name, :price, :availability, :category))
+        byebug
+        @product = Product.new(product_params(:name, :price, :availability, :category, :brand_id, brand_attributes: [:name, :year_founded, :mission]))
         if @product.save
             # redirect_to "/products/#{product.id}"
             # redirect_to product_path(product)

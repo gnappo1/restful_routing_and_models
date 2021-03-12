@@ -1,0 +1,24 @@
+<h1>Edit <%= @brand.name%></h1>
+
+<% if @brand.errors.any? %>
+    <div class="error-explanations">
+        <h2><%=pluralize(@brand.errors.count, "Error") %> prevented the brand from being created:</h2>
+        <ul class="error-details">
+            <% @brand.errors.full_messages.each do |sentence| %>
+                <li class="error-message"><%= sentence %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_with(model: @brand) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<%= f.label :year_founded %>
+<%= f.number_field :year_founded %><br>
+<%= f.label :mission %>
+<%= f.text_area :mission %><br>
+
+<%= f.submit %>
+
+<% end %>

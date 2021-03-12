@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   #shortcut route generator syntax
     resources :products
+    resources :brands
 end

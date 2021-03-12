@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_010531) do
+ActiveRecord::Schema.define(version: 2021_03_11_232428) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.integer "year_founded"
+    t.text "mission"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_brands_on_name", unique: true
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -20,8 +29,10 @@ ActiveRecord::Schema.define(version: 2021_03_10_010531) do
     t.boolean "availability"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "lock_version", default: 0, null: false
+    t.integer "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["name"], name: "index_products_on_name", unique: true
   end
 
+  add_foreign_key "products", "brands", on_delete: :cascade
 end

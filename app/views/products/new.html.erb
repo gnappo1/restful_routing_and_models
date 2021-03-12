@@ -12,15 +12,26 @@
 <% end %>
 
 <%= form_with(model: @product) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name%><br>
-<%= f.label :availability %>
-<%= f.select :availability, options_for_select([ "true", "false"]), include_blank: "Select an availability"%><br>
-<%= f.label :price %>
-<%= f.number_field :price, step: 0.01%><br>
-<%= f.label :category %>
-<%= f.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"]), include_blank: "Select a category"%><br>
-
+    <%= f.label :name %>
+    <%= f.text_field :name%><br>
+    <%= f.label :availability %>
+    <%= f.select :availability, options_for_select([ "true", "false"]), include_blank: "Select an availability"%><br>
+    <%= f.label :price %>
+    <%= f.number_field :price, step: 0.01%><br>
+    <%= f.label :category %>
+    <%= f.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"]), include_blank: "Select a category"%><br>
+    <%= f.label :brand_id %>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, prompt: true%><br>
+    <hr>
+    Or create a new brand:
+    <%= f.fields_for :brand do |brand_fields| %>
+        <%= brand_fields.label :name %>
+        <%= brand_fields.text_field :name %><br>
+        <%= brand_fields.label :year_founded %>
+        <%= brand_fields.number_field :year_founded %><br>
+        <%= brand_fields.label :mission %>
+        <%= brand_fields.text_area :mission %><br>
+    <% end %>
 <%= f.submit %>
 
 <% end %>

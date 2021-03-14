@@ -11,14 +11,25 @@
     </div>
 <% end %>
 
-<%= form_with(model: @brand) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
-<%= f.label :year_founded %>
-<%= f.number_field :year_founded %><br>
-<%= f.label :mission %>
-<%= f.text_area :mission %><br>
+<div class="new-form">
+    <%= form_with(model: @brand) do |f| %>
+        <header>
+            <h2>Create a new brand</h2>
+        </header>
+        <div class="form-input">
+            <%= f.label :name %>
+            <%= f.text_field :name%>
+        </div>
+        <div class="form-input">
+            <%= f.label :year_founded %>
+            <%= f.number_field :year_founded %>
+        </div>
+        <div class="form-input">
+            <%= f.label :mission %>
+            <%= f.text_area :mission %>
+        </div>
 
-<%= f.submit %>
+        <div class="form-button"><%= f.submit %></div>
 
-<% end %>
+    <% end %>
+</div>

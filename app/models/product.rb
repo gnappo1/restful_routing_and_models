@@ -6,8 +6,9 @@ class Product < ApplicationRecord
     validates :availability, presence: true
     validates :category, presence: true, inclusion: {in: %w(clothing accessories electronics groceries)}
     validates :price, presence: true
-    # before_validation :check_for_capitalization
+    
     # accepts_nested_attributes_for :brand, reject_if: proc { |attributes| attributes['name'].blank? || attributes['year_founded'].blank?}
+    scope :top_two_products_ordered_by_name_where_price_greater_than_50, ->(num) {where("price > ?", 50).order(:name).limit(num)}
 
     def brand_attributes=(attributes)
         if !attributes["name"].blank? && !attributes["year_founded"].blank?
@@ -15,7 +16,6 @@ class Product < ApplicationRecord
         end
     end
 
-    scope :top_two_products_ordered_by_name_where_price_greater_than_50, ->(num) {where("price > ?", 50).order(:name).limit(num)}
 
     #custom methods
     def title_for_index

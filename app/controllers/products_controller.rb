@@ -19,14 +19,10 @@ class ProductsController < ApplicationController
     end
 
     def create
-        byebug
         @product = Product.new(product_params(:name, :price, :availability, :category, :brand_id, brand_attributes: [:name, :year_founded, :mission]))
         if @product.save
-            # redirect_to "/products/#{product.id}"
-            # redirect_to product_path(product)
-            redirect_to @product, success: "Product successfully created!"
+            redirect_to @product
         else
-            flash.now[:error] = @product.errors.full_messages.to_sentence
             render :new
         end
     end

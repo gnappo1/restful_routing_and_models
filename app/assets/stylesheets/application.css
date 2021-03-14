@@ -14,8 +14,126 @@
  *= require_self
  */
 
- .field_with_errors {
+ /* Page styling
+================================== */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+
+html { 
+    height: 100%;
+    background-color: #EEE; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: .5em 2em;
+    max-width: 800px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2em;
+    background-color: white;
+    border: double 3px #DDD;
+    border-top: none; border-bottom: none;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 { margin-top: .5em; text-align: center;}
+
+h3 { font-size: 1.2em; }
+
+h4 { font-size: 1em; }
+
+strong { color: darken(slategrey,20%); }
+
+.field_with_errors {
     padding: 2px;
     background-color: red;
     display: inline;
+}
+
+div.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+div.navbar-list a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+div.navbar-list a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+div.navbar-list a.active {
+    background-color: forestgreen;
+    color: white;
+}
+
+div.new-form {
+    width: 60%;
+    margin: 5% 20%;
+    padding: .3em;
+    border: .1em solid #333;
+}
+
+div.form-input {
+    padding: .3em;
+    margin: .3em;
+}
+
+div.form-input label {
+    width: 30%;
+    margin-left: 15%;
+    vertical-align: top;
+}
+
+div.form-input input {
+    width: 40%;
+}
+
+div.form-button input {
+    display: inline-block;
+    background-color: forestgreen;
+    color: #FFFFFF;
+    padding: .2em .3em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+div.form-button {
+    position: relative;
+}
+
+div.form-button input {
+    position: relative;
+    margin-top: 1em;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.site-footer {
+    background-color: #333;
+    padding: .5em .5em;
+    line-height: 1em;
+    color: #fff;
+    flex-shrink: 0;
 }

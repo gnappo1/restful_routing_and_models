@@ -1,3 +1,112 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Tables
+================================== */
+.table {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 .1em 0;
+  padding: 0;
+}
+
+.table-header {
+    background-color: #333;
+}
+
+.table.table-header .table-cell {
+    background-color: #fff;
+}
+
+.table-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;  // Default to full width
+  padding: 0.8em .5em;
+  overflow: hidden; // Or flex might break
+  list-style: none;
+  border: solid 3px white;
+  background-color: #d9d9d9;
+  border-bottom-style: groove;
+  text-align: center;
+}
+
+h1, > h2, > h3, > h4, > h5, > h6 { margin: .5em; }
+
+.table-cell h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.show-product.table-cell {
+    display: inline-flex;
+}
+
+.show-product.table-cell h3 {
+    font-size: inherit;
+}
+
+.modify-buttons {
+    margin: 1em 0;
+    padding: .1em;
+}
+
+.modify-buttons .edit-button, 
+.modify-buttons .delete-button {
+    display: inline-flex;
+    width: 49%;
+    justify-content: right;
+}
+
+.modify-buttons .edit-button a, 
+.modify-buttons .delete-button a {
+    display: inline-block;
+    color: #FFFFFF;
+    padding: .2em .3em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    opacity: 0.9;
+    width: 20%;
+}
+
+.modify-buttons .delete-button a {
+    background-color: firebrick;
+}
+
+.modify-buttons .edit-button a {
+    background-color: goldenrod;
+    margin-left: 80%;
+}
+
+/* Table column sizing
+================================== */
+.table--2cols > .table-cell  { width: 50%; justify-content: center;}
+.table--3cols > .table-cell  { width: 33.33%; justify-content: center;}
+.table--4cols > .table-cell  { width: 25%; justify-content: center; }
+.table--5cols > .table-cell  { width: 19%; justify-content: center; }
+.table--6cols > .table-cell  { width: 16.6%; justify-content: center; }
+
+@media only screen and (max-width: 600px) {
+    .table--2cols > .table-cell  { width: 50%; }
+    .table--3cols > .table-cell,
+    .table--4cols > .table-cell,
+    .table--5cols > .table-cell,
+    .table--6cols > .table-cell  { width: 100%; }
+
+    .table.table-header.table--3cols {
+        display: none;
+    }
+
+    .modify-buttons .edit-button, 
+    .modify-buttons .delete-button {
+        width: 100%;
+    }
+
+    .modify-buttons .delete-button a,
+    .modify-buttons .edit-button a {
+        padding: .1em;
+        margin: 1% 40%;
+    }
+}

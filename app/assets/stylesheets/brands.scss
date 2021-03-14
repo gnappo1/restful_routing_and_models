@@ -1,3 +1,34 @@
 // Place all the styles related to the brands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.brand.table--3cols {
+    display: flex;
+    float: left;
+    width: 33%;
+}
+
+.brand.table-cell {
+    padding: 0.3em .2em;
+}
+
+.brand.table-cell a {
+    color: #333;
+    text-decoration: none;
+}
+
+.brand-mission {
+    text-align: center;
+    padding: .2em 2em;
+}
+
+.brand-collection {
+    flex: 1 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .brand.table--3cols,
+    .brand.table--4cols,
+    .brand.table--5cols,
+    .brand.table--6cols  { width: 100%; display: block;}
+
+}

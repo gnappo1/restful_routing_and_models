@@ -1,8 +1,14 @@
-<h1>Products</h1>
+<h1>Our Catalog</h1>
+<div class="table table-header table--3cols">
+    <div class="table-cell"><h4>Name</h4></div>
+    <div class="table-cell"><h4>Category</h4></div>
+    <div class="table-cell"><h4>Price</h4></div>
+</div>
 
-<ul>
-    <% @products.each do |prod|%>
-        <li><%= link_to prod.title_for_index, prod %></li>
-            <!-- Name: <%= prod.name%> - Category: <%= prod.category %></li> -->
-    <% end%>
-</ul>
+<% @products.each do |prod|%>
+    <div class="table table--3cols">
+        <div class="table-cell"><h3><%= link_to prod.name, prod %></h3></div>
+        <div class="table-cell"><p><%= prod.category %></p></div>
+        <div class="table-cell"><p><%= prod.price %></p></div>
+    </div>
+<% end %>

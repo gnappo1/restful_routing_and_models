@@ -1,11 +1,11 @@
-<h1>Brands</h1>
+<h1>Our Catalog</h1>
 
 <% if @brands.length > 0 %>
-    <ul>
-        <% @brands.each do |brand|%>
-            <li><%= link_to brand.name, brand %></li>
-        <% end %>
-    </ul>
+    <% @brands.each do |brand|%>
+        <div class="brand table--3cols">
+            <div class="brand table-cell"><h3><%= link_to brand.name, brand %></h3></div>
+        </div>
+    <% end %>
 <% else %>
     <h2>There are currently no brands! Create one <%= link_to "here", new_brand_path %></h2>
 <% end %>

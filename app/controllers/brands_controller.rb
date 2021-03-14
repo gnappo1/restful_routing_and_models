@@ -34,7 +34,11 @@ class BrandsController < ApplicationController
     end
 
     def destroy
-        @brand.destroy
+        if @brand.destroy
+            redirect_to brands_path
+        else
+            redirect_to @brand
+        end
     end
 
     private

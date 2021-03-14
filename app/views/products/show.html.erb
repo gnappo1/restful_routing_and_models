@@ -1,10 +1,20 @@
 <h1><%= @product.name%></h1>
+<div class="table table-header table--5cols">
+    <div class="table-cell"><h4>Name</h4></div>
+    <div class="table-cell"><h4>Brand</h4></div>
+    <div class="table-cell"><h4>Category</h4></div>
+    <div class="table-cell"><h4>Price</h4></div>
+    <div class="table-cell"><h4>Availability</h4></div>
+</div>
 
-<h4>Price: <%= @product.price%></h4>
-<h4>category: <%= @product.category%></h4>
-<h4>Availability: <%= @product.availability%></h4>
-
-<%= link_to "All products", products_path %>
-<%= link_to "Back", :back %>
-<%= link_to "Edit", edit_product_path(@product) %>
-<%= link_to "Delete", @product, method: "delete", data: {confirm: "Are you sure???"}  %>
+<div class="show-product table--5cols">
+    <div class="show-product table-cell"><h3><%= link_to @product.name, @product %></h3></div>
+    <div class="show-product table-cell"><h3><%= @product.brand.name %></h3></div>
+    <div class="show-product table-cell"><h3><%= @product.category %></h3></div>
+    <div class="show-product table-cell"><h3><%= @product.price %></h3></div>
+    <div class="show-product table-cell"><h3><%= @product.availability %></h3></div>
+</div>
+<div class="modify-buttons">
+    <div class="edit-button"><%= link_to "Edit", edit_product_path(@product) %></div>
+    <div class="delete-button"><%= link_to "Delete", @product, method: "delete", data: {confirm: "Are you sure???"}  %></div>
+</div>

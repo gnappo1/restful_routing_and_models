@@ -11,11 +11,30 @@
   </head>
 
   <body>
+    <nav>
+      <div class="navbar-list">
+          <a class="navbar-link <%= active_css(root_path)%>" href="/">Home</a>
+          <a class="navbar-link <%= active_css(brands_path)%>" href="/brands">Brands</a>
+          <a class="navbar-link <%= active_css(products_path)%>" href="/products">Products</a>
+          <a class="navbar-link <%= active_css(new_brand_path)%>" href="/brands/new">New Brand</a>
+          <a class="navbar-link <%= active_css(new_product_path)%>" href="/products/new">New Product</a>
+        </div>
+    </nav>
     <!-- <% flash.each do |type, msg| %>
       <div>
         <%= msg %>
       </div>
     <% end %> -->
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
+  <footer class="site-footer">
+
+    <div class="container">
+      <div class="row">
+        <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by Piccinius.</p>
+      </div>
+    </div>
+  </footer>
 </html>

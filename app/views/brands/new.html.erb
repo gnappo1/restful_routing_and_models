@@ -26,6 +26,27 @@
             <%= f.label :mission %>
             <%= f.text_area :mission %>
         </div>
+        <div class="form-input">
+            <h3>Create a new product (optional)</h3>
+            <%= f.fields_for :products do |products_fields| %>
+                <div class="form-input">
+                    <%= products_fields.label :name %>
+                    <%= products_fields.text_field :name %>
+                </div>
+                <div class="form-input">
+                    <%= products_fields.label :availability %>
+                    <%= products_fields.select :availability, options_for_select([ "true", "false"]), include_blank: "Select an availability"%>
+                </div>
+                <div class="form-input">
+                    <%= products_fields.label :price %>
+                    <%= products_fields.number_field :price, step: 0.01%><br>
+                </div>
+                <div class="form-input">
+                    <%= products_fields.label :category %>
+                    <%= products_fields.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"]), include_blank: "Select a category"%>
+                </div>
+            </div>
+        <% end %>
 
         <div class="form-button"><%= f.submit %></div>
 

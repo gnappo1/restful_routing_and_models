@@ -20,16 +20,16 @@
 }
 
 .table-cell {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;  // Default to full width
-  padding: 0.8em .5em;
-  overflow: hidden; // Or flex might break
-  list-style: none;
-  border: solid 3px white;
-  background-color: #d9d9d9;
-  border-bottom-style: groove;
-  text-align: center;
+    box-sizing: border-box;
+    height: 3.5em;
+    flex-grow: 1;
+    width: 100%;
+    overflow: hidden;
+    list-style: none;
+    border: solid 3px white;
+    background-color: #d9d9d9;
+    border-bottom-style: groove;
+    text-align: center
 }
 
 h1, > h2, > h3, > h4, > h5, > h6 { margin: .5em; }

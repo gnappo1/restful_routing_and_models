@@ -10,10 +10,11 @@ class BrandsController < ApplicationController
 
     def new
         @brand = Brand.new
+        @brand.products.build
     end
 
     def create
-        @brand = Brand.create(brand_params(:name, :year_founded, :mission))
+        @brand = Brand.create(brand_params(:name, :year_founded, :mission, products_attributes: [:name, :category, :availability, :price]))
         if @brand.valid?
             redirect_to @brand
         else

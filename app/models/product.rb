@@ -8,7 +8,7 @@ class Product < ApplicationRecord
     validates :price, presence: true
     
     # accepts_nested_attributes_for :brand, reject_if: proc { |attributes| attributes['name'].blank? || attributes['year_founded'].blank?}
-    scope :top_two_products_ordered_by_name_where_price_greater_than_50, ->(num) {where("price > ?", 50).order(:name).limit(num)}
+    scope :top_two_products_ordered_by_name_where_price_greater_than_50, -> {where("price > ?", 50).order(:name)}
 
     def brand_attributes=(attributes)
         if !attributes["name"].blank? && !attributes["year_founded"].blank?

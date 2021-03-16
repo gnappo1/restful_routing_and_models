@@ -33,8 +33,6 @@ class ProductsController < ApplicationController
     def update
         @product.update(product_params(:name, :price, :availability, :category))
         if @product.valid?
-            # redirect_to "/products/#{product.id}"
-            # redirect_to product_path(product)
             redirect_to @product
         else
             render :edit

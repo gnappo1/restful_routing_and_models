@@ -1,12 +1,18 @@
 class ProductsController < ApplicationController
     before_action :find_product, only: [:show, :edit, :update, :destroy]
 
+    #the following code comes from the lecture on refactoring with layout, partials, and helpers
+    # helper_method [:find_product]
+    # layout "brands"
+
     def homepage
         render :homepage
     end
     
     def index
         @products = Product.all
+        #the following code comes from the lecture on refactoring with layout, partials, and helpers
+        # render :index, layout: "products"
     end
 
     def show

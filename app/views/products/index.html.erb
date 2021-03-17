@@ -1,4 +1,6 @@
 <h1>Our Catalog</h1>
+<%= display_text_for_no_resource(@products) %>
+
 <div class="table table-header table--3cols">
     <div class="table-cell"><h4>Name</h4></div>
     <div class="table-cell"><h4>Category</h4></div>
@@ -12,3 +14,4 @@
         <div class="table-cell"><p><%= prod.price %></p></div>
     </div>
 <% end %>
+

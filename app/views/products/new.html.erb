@@ -1,37 +1,11 @@
-<% if @product.errors.any? %>
-    <div class="error-explanations">
-        <h2><%=pluralize(@product.errors.count, "Error") %> prevented the product from being created:</h2>
-        <ul class="error-details">
-            <% @product.errors.full_messages.each do |sentence| %>
-                <li class="error-message"><%= sentence %></li>
-            <% end %>
-        </ul>
-    </div>
-<% end %>
+<%= render partial: "errors", locals: {object: @product} %>
+
 <div class="new-form">
+    <header>
+        <h2>Create a new product</h2>
+    </header>
     <%= form_with(model: @product) do |f| %>
-        <header>
-            <h2>Create a new product</h2>
-        </header>
-        <div class="form-input">
-            <%= f.label :name %>
-            <%= f.text_field :name%>
-        </div>
-        <div class="form-input">
-            <%= f.label :availability %>
-            <%= f.select :availability, options_for_select([ "true", "false"]), include_blank: "Select an availability"%>
-        </div>
-        <div class="form-input">
-            <%= f.label :price %>
-            <%= f.number_field :price, step: 0.01%><br></div>
-            <div class="form-input">
-                <%= f.label :category %>
-                <%= f.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"]), include_blank: "Select a category"%>
-            </div>
-        <div class="form-input">
-            <%= f.label :brand_id %>
-            <%= f.collection_select :brand_id, Brand.all, :id, :name, prompt: true%>
-        </div>
+        <%=  render partial: "form", locals: {form_builder: f} %>
         <hr>
         <h4>Or create a new brand:</h4>
         <%= f.fields_for :brand do |brand_fields| %>

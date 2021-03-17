@@ -1,15 +1,6 @@
 <h1>Edit <%= @brand.name%></h1>
 
-<% if @brand.errors.any? %>
-    <div class="error-explanations">
-        <h2><%=pluralize(@brand.errors.count, "Error") %> prevented the brand from being created:</h2>
-        <ul class="error-details">
-            <% @brand.errors.full_messages.each do |sentence| %>
-                <li class="error-message"><%= sentence %></li>
-            <% end %>
-        </ul>
-    </div>
-<% end %>
+<%= render partial: "products/errors", locals: {object: @brand} %>
 
 <div class="new-form">
     <%= form_with(model: @brand) do |f| %>

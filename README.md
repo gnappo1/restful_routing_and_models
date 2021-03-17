@@ -36,3 +36,10 @@
 4. Implement a nested form for a has_many relationship
 5. Understand the methods provided by the accepts_nested_attributes_for macro
 6. Create custom attribute writers and understand why/when they are useful
+
+## Week 4 (Partials, Layout, Helpers)
+
+1. Introduction on refactoring in Rails: the process and the layers
+2. Talk about layouts and build new brands.html.erb and products.html.erb
+3. Discuss about partials and abstract reused code into new partial files
+4. Introduce helpers and create new methods to remove logic from the views

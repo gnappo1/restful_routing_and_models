@@ -1,0 +1,4 @@
+<div class="modify-buttons">
+    <div class="edit-button"><%= link_to "Edit", send("edit_#{resource.class.to_s.downcase}_path", resource) %></div>
+    <div class="delete-button"><%= link_to "Delete", resource, method: "delete", data: {confirm: "Are you sure???"}  %></div>
+</div>

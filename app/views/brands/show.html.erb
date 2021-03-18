@@ -3,7 +3,4 @@
 <h4>Founded in: <%= @brand.year_founded %></h4>
 <p class="brand-mission">Mission: <%= @brand.mission %></p>
 
-<div class="modify-buttons">
-    <div class="edit-button"><%= link_to "Edit", edit_brand_path(@brand) %></div>
-    <div class="delete-button"><%= link_to "Delete", @brand, method: "delete", data: {confirm: "Are you sure???"}  %></div>
-</div>
+<%= render partial: "products/modify_buttons", locals: {resource: @brand} %>

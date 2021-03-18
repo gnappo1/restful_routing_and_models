@@ -1,17 +1,3 @@
 <h1>Our Catalog</h1>
-<%= display_text_for_no_resource(@products) %>
 
-<div class="table table-header table--3cols">
-    <div class="table-cell"><h4>Name</h4></div>
-    <div class="table-cell"><h4>Category</h4></div>
-    <div class="table-cell"><h4>Price</h4></div>
-</div>
-
-<% @products.each do |prod|%>
-    <div class="table table--3cols">
-        <div class="table-cell"><h3><%= link_to prod.name, prod %></h3></div>
-        <div class="table-cell"><p><%= prod.category %></p></div>
-        <div class="table-cell"><p><%= prod.price %></p></div>
-    </div>
-<% end %>
-
+<%= display_list_conditionally(@products) %>

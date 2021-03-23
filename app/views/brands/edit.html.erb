@@ -4,11 +4,7 @@
 
 <div class="new-form">
     <%= form_with(model: @brand) do |f| %>
-        <header>
-            <h2>Create a new brand</h2>
-        </header>
         <%= render partial: "form", locals: {f: f} %>
         <div class="form-button"><%= f.submit %></div>
-
     <% end %>
 </div>

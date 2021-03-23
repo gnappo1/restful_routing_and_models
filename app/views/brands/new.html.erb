@@ -1,19 +1,17 @@
 <%= render partial: "products/errors", locals: {object: @brand} %>
 
 <div class="new-form">
+    <header>
+        <h2>Create a new brand</h2>
+    </header>
     <%= form_with(model: @brand) do |f| %>
-        <header>
-            <h2>Create a new brand</h2>
-        </header>
         <%= render partial: "form", locals: {f: f} %>
         <div class="form-input">
             <h3>Create a new product (optional)</h3>
             <%= f.fields_for :products do |products_fields| %>
                 <%= render partial: "products/form", locals: {form_builder: f, product: @brand.products.last} %>
-            </div>
-        <% end %>
-
+            <% end %>
+        </div>
         <div class="form-button"><%= f.submit %></div>
-
     <% end %>
 </div>

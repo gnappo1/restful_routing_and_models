@@ -4,7 +4,7 @@
 </div>
 <div class="form-input">
     <%= form_builder.label :availability %>
-    <%= form_builder.select :availability, options_for_select([ "true", "false"], selected: product.availability), include_blank: "Select an availability" %>
+    <%= form_builder.select :availability, options_for_select([true, false], selected: product.availability), include_blank: "Select an availability" %>
 </div>
 <div class="form-input">
     <%= form_builder.label :price %>

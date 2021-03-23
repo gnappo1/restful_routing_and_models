@@ -1,6 +1,6 @@
 <div class="form-input">
     <%= f.label :brand_id %>
-    <%= f.collection_select :brand_id, Brand.all, :id, :name, selected: product.brand_id, prompt: true %>
+    <%= f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :name, selected = f.object.brand_id), prompt: "Select brand" %>
 </div>
 <hr>
 <h4>Or create a new brand:</h4>

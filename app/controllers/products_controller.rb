@@ -1,18 +1,12 @@
 class ProductsController < ApplicationController
     before_action :find_product, only: [:show, :edit, :update, :destroy]
 
-    #the following code comes from the lecture on refactoring with layout, partials, and helpers
-    # helper_method [:find_product]
-    # layout "brands"
-
     def homepage
         render :homepage
     end
     
     def index
         @products = Product.all
-        #the following code comes from the lecture on refactoring with layout, partials, and helpers
-        # render :index, layout: "products"
     end
 
     def show
@@ -26,6 +20,7 @@ class ProductsController < ApplicationController
 
     def create
         @product = Product.new(product_params(:name, :price, :availability, :category, :brand_id, brand_attributes: [:name, :year_founded, :mission]))
+        byebug
         if @product.save
             redirect_to @product
         else

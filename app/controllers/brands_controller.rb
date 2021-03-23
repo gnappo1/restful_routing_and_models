@@ -18,6 +18,7 @@ class BrandsController < ApplicationController
         if @brand.valid?
             redirect_to @brand
         else
+            @brand.products.build
             render :new
         end
     end

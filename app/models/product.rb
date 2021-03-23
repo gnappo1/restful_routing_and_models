@@ -3,7 +3,6 @@ class Product < ApplicationRecord
 
     #validations
     validates :name,  presence: true, uniqueness: true, length: {minimum: 7}, two_words: true #new custom validation called two_words
-    validates :availability, presence: true
     validates :category, presence: true, inclusion: {in: %w(clothing accessories electronics groceries)}
     validates :price, presence: true
     
@@ -11,8 +10,10 @@ class Product < ApplicationRecord
     scope :top_two_products_ordered_by_name_where_price_greater_than_50, -> {where("price > ?", 50).order(:name)}
 
     def brand_attributes=(attributes)
-        if !attributes["name"].blank? && !attributes["year_founded"].blank?
-            self.brand = Brand.find_or_create_by(name: attributes[:name], year_founded: attributes[:year_founded], mission: attributes[:mission])
+        if !attributes["name"].blank?
+            byebug
+            brand = Brand.find_by(name: attributes["name"])
+            self.brand = (brand ? brand : Brand.create(attributes))
         end
     end
 

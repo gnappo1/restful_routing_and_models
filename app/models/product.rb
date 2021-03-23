@@ -11,9 +11,7 @@ class Product < ApplicationRecord
 
     def brand_attributes=(attributes)
         if !attributes["name"].blank?
-            byebug
-            brand = Brand.find_by(name: attributes["name"])
-            self.brand = (brand ? brand : Brand.create(attributes))
+            self.brand = Brand.find_or_create_by(attributes)
         end
     end
 

@@ -1,4 +1,4 @@
-<%= render partial: "errors", locals: {object: @product} %>
+<%= conditional_errors(@product) %>
 
 <div class="new-form">
     <header>

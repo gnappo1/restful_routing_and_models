@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
 
     def create
         @product = Product.new(product_params(:name, :price, :availability, :category, :brand_id, brand_attributes: [:name, :year_founded, :mission]))
-        byebug
         if @product.save
             redirect_to @product
         else

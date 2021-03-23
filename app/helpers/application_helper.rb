@@ -1,4 +1,5 @@
 module ApplicationHelper
+
     def display_list_conditionally(collection)
         if collection.length == 0
             content_tag(:h4, "There are currently no resources, go create one", class: "no-products")
@@ -15,5 +16,9 @@ module ApplicationHelper
 
     def check_edit_path(object)
         object.call == Product ? edit_product_path(object) : edit_brand_path(object)
+    end
+
+    def conditional_errors(object)
+        render partial: "products/errors", locals: {object: object} if object.errors.any?
     end
 end

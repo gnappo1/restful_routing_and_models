@@ -1,15 +1,15 @@
 <div class="table table-header table--5cols">
     <div class="table-cell"><h4>Name</h4></div>
-    <div class="table-cell"><h4>Brand</h4></div>
     <div class="table-cell"><h4>Category</h4></div>
     <div class="table-cell"><h4>Price</h4></div>
     <div class="table-cell"><h4>Availability</h4></div>
+    <div class="table-cell"><h4>Brand</h4></div>
 </div>
 
 <div class="show-product table--5cols">
     <%= render partial: "product", locals: {product: @product} %>
     <div class="show-product table-cell"><h3><%= @product.availability %></h3></div>
-    <div class="show-product table-cell"><h3><%= @product.brand.name %></h3></div>
+    <div class="show-product table-cell"><h3><%= link_to @product.brand.name, brand_path(@product.brand) %></h3></div>
 </div>
 
 <%= render partial: "modify_buttons", locals: {resource: @product} %>

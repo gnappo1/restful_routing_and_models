@@ -4,7 +4,7 @@
 </div>
 <div class="form-input">
     <%= form_builder.label :availability %>
-    <%= form_builder.select :availability, options_for_select([ "true", "false"]), include_blank: "Select an availability"%>
+    <%= form_builder.select :availability, options_for_select([ "true", "false"], selected: product.availability), include_blank: "Select an availability" %>
 </div>
 <div class="form-input">
     <%= form_builder.label :price %>
@@ -12,9 +12,5 @@
 </div>
 <div class="form-input">
     <%= form_builder.label :category %>
-    <%= form_builder.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"]), include_blank: "Select a category"%>
-</div>
-<div class="form-input">
-    <%= form_builder.label :brand_id %>
-    <%= form_builder.collection_select :brand_id, Brand.all, :id, :name, prompt: true%>
+    <%= form_builder.select :category, options_for_select([ "clothing", "accessories", "electronics", "groceries"], selected: product.category), include_blank: "Select a category"%>
 </div>

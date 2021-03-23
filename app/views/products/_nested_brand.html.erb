@@ -1,0 +1,9 @@
+<div class="form-input">
+    <%= f.label :brand_id %>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, selected: product.brand_id, prompt: true %>
+</div>
+<hr>
+<h4>Or create a new brand:</h4>
+<%= f.fields_for :brand do |brand_fields| %>
+    <%= render partial: "brands/form", locals: {f: brand_fields} %>
+<% end %>

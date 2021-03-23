@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
 
     def new
         @product = Product.new
-        @product.build_brand
+        build_brand    
     end
 
     def create
@@ -29,19 +29,21 @@ class ProductsController < ApplicationController
         if @product.save
             redirect_to @product
         else
-            @product.build_brand
+            build_brand
             render :new
         end
     end
 
     def edit
+        build_brand
     end
 
     def update
-        @product.update(product_params(:name, :price, :availability, :category))
+        @product.update(product_params(:name, :price, :availability, :category, :brand_id, brand_attributes: [:name, :year_founded, :mission]))
         if @product.valid?
             redirect_to @product
         else
+            build_brand
             render :edit
         end
     end
@@ -58,6 +60,10 @@ class ProductsController < ApplicationController
 
     def product_params(*args)
         params.require(:product).permit(*args)
+    end
+
+    def build_brand
+        @product.build_brand
     end
 
     def find_product

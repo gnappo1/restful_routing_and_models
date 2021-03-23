@@ -1,25 +1,13 @@
 <h1>Edit <%= @brand.name%></h1>
 
-<!-- <%= render partial: "products/errors", locals: {object: @brand} %> -->
+<%= render partial: "products/errors", locals: {object: @brand} %>
 
 <div class="new-form">
     <%= form_with(model: @brand) do |f| %>
         <header>
             <h2>Create a new brand</h2>
         </header>
-        <div class="form-input">
-            <%= f.label :name %>
-            <%= f.text_field :name%>
-        </div>
-        <div class="form-input">
-            <%= f.label :year_founded %>
-            <%= f.number_field :year_founded %>
-        </div>
-        <div class="form-input">
-            <%= f.label :mission %>
-            <%= f.text_area :mission %>
-        </div>
-
+        <%= render partial: "form", locals: {f: f} %>
         <div class="form-button"><%= f.submit %></div>
 
     <% end %>

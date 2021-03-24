@@ -1,12 +1,17 @@
 class ProductsController < ApplicationController
     before_action :find_product, only: [:show, :edit, :update, :destroy]
+    rescue_from ActiveRecord::RecordNotFound, with: :deny_access
 
     def homepage
         render :homepage
     end
     
     def index
-        @products = Product.all
+        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+            @products = @brand.products
+        else
+            @products = Product.all
+        end
     end
 
     def show
@@ -14,12 +19,17 @@ class ProductsController < ApplicationController
     end
 
     def new
-        @product = Product.new
-        build_brand    
+        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+            @product = Product.new(brand_id: params[:brand_id])
+        else
+            @product = Product.new
+            build_brand
+        end   
     end
 
     def create
         @product = Product.new(product_params(:name, :price, :availability, :category, :brand_id, brand_attributes: [:name, :year_founded, :mission]))
+        @brand = Brand.find(params[:brand_id]) if params[:brand_id]
         if @product.save
             redirect_to @product
         else
@@ -62,5 +72,9 @@ class ProductsController < ApplicationController
 
     def find_product
         @product = Product.find_by_id(params[:id])
+    end
+
+    def deny_access
+        render :"errors/record_not_found"
     end
 end

@@ -4,10 +4,9 @@
     <header>
         <h2>Create a new product</h2>
     </header>
-    <%= form_with(model: @product) do |f| %>
+    <%= form_with(model: [@brand, @product]) do |f| %>
         <%=  render partial: "form", locals: {form_builder: f, product: @product} %>
-        <%=  render partial: "nested_brand", locals: {f: f, product: @product} %>
+        <%= nested_product_form_conditional(@product, @brand, f) %>
         <div class="form-button"><%= f.submit %></div>
-
     <% end %>
 </div>

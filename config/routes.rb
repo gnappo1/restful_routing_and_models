@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   # post '/products', to: 'products#create'
 
   #shortcut route generator syntax
-    resources :products
-    resources :brands
+  resources :products, only: [:index, :new, :create]
+  
+  resources :brands do
+    resources :products, shallow: true
+  end
+    
+
 end

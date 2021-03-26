@@ -2,7 +2,13 @@ class BrandsController < ApplicationController
     before_action :find_brand, only: [:show, :edit, :update, :destroy]
 
     def index
-        @brands = Brand.all
+        #when using 'brand.products.length' in the _brand partial: 
+            #@brands = Brand.includes([:products])
+        #when using 'brand.products_count' in the _brand partial:
+            #@brands = Brand.joins(:products).select("brands.*", 'COUNT("products.id") AS products_count').group("brands.id")
+        #when using 'brand.products.size' in the _brand partial we can implement a counter cache
+            #check out the last migration file and the 'counter_cache: true' inside the model Product line 2
+            @brands = Brand.all
     end
 
     def show

@@ -7,7 +7,9 @@ class ProductsController < ApplicationController
     end
     
     def index
-        if params[:brand_id] && @brand = Brand.find(params[:brand_id])
+        if params["search"]
+            @products = Product.search_by_name(params["search"])
+        elsif params[:brand_id] && @brand = Brand.find(params[:brand_id])
             @products = @brand.products
         else
             @products = Product.all

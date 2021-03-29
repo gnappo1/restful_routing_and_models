@@ -6,6 +6,10 @@ module ApplicationHelper
         else
             tag.div class: class_name(collection) do
                 render collection
+                # collection does three things for us:
+                # 1. iterates
+                # 2. finds the right partial (has to be called like the model but singular)
+                # 3. passes the object to the partial
             end
         end
     end

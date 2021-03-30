@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
     before_action :find_brand, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_logged_in
 
     def index
         #when using 'brand.products.length' in the _brand partial: 

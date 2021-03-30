@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
     before_action :find_product, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_logged_in
     rescue_from ActiveRecord::RecordNotFound, with: :deny_access
 
     def homepage

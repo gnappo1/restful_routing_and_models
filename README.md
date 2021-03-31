@@ -43,3 +43,16 @@
 2. Talk about layouts and build new brands.html.erb and products.html.erb
 3. Discuss about partials and abstract reused code into new partial files
 4. Introduce helpers and create new methods to remove logic from the views
+
+## Week 5 (Nested Routes, N+1 queries, Search Form)
+
+1. Add extra nested and non-nested routes
+2. Adjust existing files to support both types of routes
+3. Discuss N+1 queries and the differences between count/size/length
+4. Implement a search form with form_with and use scope method to query the db
+
+## Week 6 (Authentication and Omniauth)
+
+1. Implement regular authentication: add routes, user model, bcrypt, SessionsController, UsersController, view files
+2. Include third-party oauth with omniauth
+3. Use env variables and implement each strategy

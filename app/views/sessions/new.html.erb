@@ -1,1 +1,21 @@
-<h1>Signin</h1>
+<h1>Login</h1>
+
+<div id="login-form">
+    <%= form_with(model: @user, url: "/login") do |f| %>
+        <div class="form-control">
+            <%= f.label :email, class: "form-label" , class: "form-label" %>
+            <%= f.email_field :email, class: "form-input" %>
+        </div>
+        <div class="form-control">
+            <%= f.label :password, class: "form-label" , class: "form-label" %>
+            <%= f.password_field :password, class: "form-input" %>
+        </div>
+        <%= f.submit :signin%>
+    <% end %>
+    Don't have an account? <%= link_to "Sign up", signup_path, class: "show-signup" %> here.
+    <p>Social Login:</p>
+    <div class="third-party-login">
+        <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
+        <%= button_to "Log in with Github", '/auth/github'  %>
+    </div>
+</div>
